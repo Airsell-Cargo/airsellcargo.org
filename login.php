@@ -1,30 +1,30 @@
 <?php
-session_start();
+CREATE TABLE staff_users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,  -- store hashed password
+    role VARCHAR(50) DEFAULT 'staff',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+<?php
 include 'db_connect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'] ?? '';
-    $password = $_POST['password'] ?? '';
+    $username = $_POST['username'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    $stmt = $conn->prepare("SELECT id, password FROM staff_users WHERE username = ?");
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    $stmt = $conn->prepare("INSERT INTO staff_users (username, password) VALUES (?, ?)");
+    $stmt->bind_param("ss", $username, $password);
 
-    if ($result->num_rows === 1) {
-        $row = $result->fetch_assoc();
-        if (password_verify($password, $row['password'])) {
-            $_SESSION['staff_id'] = $row['id'];
-            $_SESSION['username'] = $username;
-            header("Location: dashboard.php"); // redirect to staff dashboard
-            exit;
-        } else {
-            echo "Invalid password.";
-        }
+    if ($stmt->execute()) {
+        echo "Staff user created successfully";
     } else {
-        echo "User not found.";
+        echo "Error: " . $stmt->error;
     }
     $stmt->close();
 }
 $conn->close();
+?>
+
+
 ?>
