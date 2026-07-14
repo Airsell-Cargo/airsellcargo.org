@@ -12,7 +12,7 @@ This document tracks the mandatory training modules required for Airsell Cargo s
 | Staff Name | Position | Module 1: Basic Cargo | Module 2: AWB Rating | Status |
 | :--- | :--- | :--- | :--- | :--- |
 | **Hamse Dahir** | Branch Administrator | [ ] In Progress | [ ] In Progress | Active |
-| [Staff Name] | [Position] | [ ] Not Started | [ ] Not Started | Pending |
+| ["Iid Abdi"] | [operation] | [ ] Not Started | [Completed 2026-06-15 ] | Pending |
 | [Staff Name] | [Position] | [ ] Not Started | [ ] Not Started | Pending |
 
 ## 📅 Upcoming Deadlines
