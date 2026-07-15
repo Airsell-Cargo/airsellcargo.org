@@ -1,55 +1,189 @@
-/* Keeps the page content from getting too wide */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+:root {
+    --brand-red: #D32F2F;
+    --brand-yellow: #FBC02D;
+    --brand-green: #388E3C;
+    --white: #FFFFFF;
+    --text-dark: #2C3E50;
 }
 
-/* Forces everything in the header onto one line */
-.header-flex {
-  display: flex;
-  justify-content: space-between; /* Pushes logo left, nav right */
-  align-items: center;           /* Centers them vertically */
-  padding: 10px 0;
+/* Header Container */
+.main-header {
+    background-color: var(--white);
+    border-bottom: 4px solid var(--brand-red); /* Strong brand line */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.logo-area {
-  display: flex;
-  align-items: center;
-  gap: 12px; /* Space between logo and text */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
 }
 
-.logo-area img {
-  height: 45px; /* Resized to look 'proper' on one line */
-  width: auto;
+/* Logo Styling */
+.logo__text {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--brand-red);
+    text-transform: uppercase;
 }
 
-.brand-text h1 {
-  font-size: 1.4rem;
-  margin: 0;
-  line-height: 1;
+.logo__sub {
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--text-dark);
 }
 
-.brand-text p {
-  font-size: 0.75rem;
-  margin: 0;
-  color: #39FF14; /* Brand Green */
+/* Menu Layout */
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
 }
 
-nav {
-  display: flex;
-  gap: 15px;
+.menu__link {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
 }
 
-nav a {
-  font-size: 0.9rem;
-  white-space: nowrap; /* Prevents links from breaking into two lines */
+.menu__link:hover {
+    color: var(--brand-red);
 }
 
-/* Mobile Responsive: Stacks only when screen is very small */
-@media (max-width: 768px) {
-  .header-flex {
-    flex-direction: column;
-    gap: 15px;
-  }
+/* Action Button (Login) */
+.menu__btn {
+    text-decoration: none;
+    background-color: var(--brand-red);
+    color: var(--white);
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-weight: bold;
+    border-bottom: 3px solid #b71c1c; /* Adds depth */
+}
+/* Hero Section Styling */
+.hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('logistics-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero__content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    border-bottom: 5px solid var(--brand-yellow); /* Your brand yellow */
+    display: inline-block;
+}
+
+/* Quick Track Section */
+.quick-track {
+    background: white;
+    max-width: 800px;
+    margin: -50px auto 50px; /* Pulls it up into the hero section */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.track-box {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.track-input {
+    flex: 2;
+    padding: 15px;
+    border: 2px solid #eee;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.track-btn {
+    flex: 1;
+    background-color: var(--brand-red); /* Your brand red */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.main-footer {
+    background-color: #2C3E50; /* Professional Charcoal */
+    color: #FFFFFF;
+    padding: 50px 5% 20px;
+    margin-top: 50px;
+    border-top: 5px solid #FBC02D; /* Your branding yellow */
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Important for mobile devices */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-section h4 {
+    color: #FBC02D;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #FFFFFF;
+    padding-left: 5px; /* Subtle movement effect */
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #3e4f5f;
+    font-size: 0.8rem;
+    color: #bdc3c7;
+}
+.menu__btn:hover {
+    background-color: #b71c1c;
+    transform: translateY(-1px);
 }

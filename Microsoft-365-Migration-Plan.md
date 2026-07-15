@@ -9,7 +9,7 @@ This document tracks the technical transition of business operations to Microsof
 
 ## 2. Phase 2: Domain & DNS Setup
 * **Verification:** Connect airsellcargo.com to Microsoft 365 via DNS TXT records.
-* **Mailbox Setup:** Configure sales@airsellcargo.com and administrator accounts.
+* **Mailbox Setup:** Configure info@airsellcargo.com and administrator accounts.
 * **MX Records:** Update mail exchange records to point to Microsoft servers.
 
 ## 3. Phase 3: Data Migration
